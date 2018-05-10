@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
-import { ContainerDialogComponent } from './src/container-dialog.component';
-import { GecoDialog } from './src/GecoDialog';
-import { DataConfig } from './src/data-config';
+import { ContainerDialogComponent } from './container-dialog.component';
+import { GecoDialog } from './GecoDialog';
+import { DataConfig } from './data-config';
 import { BrowserModule } from '@angular/platform-browser';
 
 

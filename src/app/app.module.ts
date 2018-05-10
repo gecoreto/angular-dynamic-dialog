@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { GecoDialogModule } from './lib/geco-dialog.module';
+import { GecoDialogModule } from './lib/geco-dialog';
 import { DynamicCotentComponent } from './demo/dynamic-cotent/dynamic-cotent.component';
 import { ExampleComponent } from './demo/example/example.component';
 

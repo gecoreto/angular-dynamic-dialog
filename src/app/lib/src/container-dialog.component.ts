@@ -13,7 +13,7 @@ import { DataConfig } from './data-config';
     styleUrls: ['../dialog.css']
 })
 export class ContainerDialogComponent implements OnInit, AfterViewInit {
-    private divModalDialog: boolean = false;
+    divModalDialog: boolean = false;
 
     @ViewChild('dynamicContent', { read: ViewContainerRef })
     private dynamicContent: ViewContainerRef;

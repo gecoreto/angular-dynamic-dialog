@@ -1,0 +1,1 @@
+export { GecoDialogModule } from './src/geco-dialog.module';
