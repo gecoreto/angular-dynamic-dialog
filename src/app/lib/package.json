@@ -1,0 +1,27 @@
+{
+    "name": "angular-dynamic-dialog",
+    "version": "1.0.0",
+    "description": "Angular-dynamic-dialog is a library for building dynamic dialog, here you can embed a component to render the dialog's content. Customizing to your liking",
+    "main": "dist/geco-dialog.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "rm -rf dist && tsc"
+    },
+    "keywords": [
+        "angular4",
+        "angular5",
+        "angular",
+        "library",
+        "dynamic",
+        "modal",
+        "dialog"
+    ],
+    "author": "gecoreto",
+    "license": "MIT",
+    "devDependencies": {
+        "typescript": "~2.5.3"
+    },
+    "dependencies": {
+        "@angular/core": "^5.2.0"
+    }
+}
