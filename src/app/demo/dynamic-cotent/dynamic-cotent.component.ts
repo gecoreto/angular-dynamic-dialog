@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { GECO_DATA_DIALOG, GecoDialog, GECO_DIALOG_REF } from '../../lib/src/GecoDialog';
+import { GECO_DATA_DIALOG, GecoDialog, GECO_DIALOG_REF } from '../../lib/geco-dialog';
 import { GecoDialogRef } from '../../lib/src/GecoDialogRef';
 
 @Component({
@@ -20,9 +20,5 @@ export class DynamicCotentComponent implements OnInit {
     console.log('Data =>', this.data);
     console.log('dialogRef =>', this.dialogRef);
   }
-
-
-  prueba(s){
-    alert(s);
-  }
+  
 }

@@ -2,14 +2,15 @@ import {NgModule} from '@angular/core';
 import { ContainerDialogComponent } from './container-dialog.component';
 import { GecoDialog } from './GecoDialog';
 import { DataConfig } from './data-config';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
   imports: [
-    BrowserModule
+    CommonModule
   ],
   exports: [
+    ContainerDialogComponent
   ],
   declarations: [
     ContainerDialogComponent,

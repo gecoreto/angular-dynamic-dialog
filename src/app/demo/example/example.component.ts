@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GecoDialog } from '../../lib/src/GecoDialog';
+import { GecoDialog } from '../../lib/geco-dialog';
 import { DynamicCotentComponent } from '../dynamic-cotent/dynamic-cotent.component';
 
 @Component({
