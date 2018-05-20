@@ -2,10 +2,16 @@
     "name": "angular-dynamic-dialog",
     "version": "1.0.0",
     "description": "Angular-dynamic-dialog is a library for building dynamic dialog, here you can embed a component to render the dialog's content. Customizing to your liking",
-    "main": "dist/geco-dialog.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/gecoreto/angular-dynamic-dialog.git"
+    },
+    "main": "./dist/geco-dialog.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "rm -rf dist && tsc"
+        "transpile": "ngc",
+        "package": "rollup -c",
+        "minify": "uglifyjs dist/bundles/geco-dialog.umd.js --screw-ie8 --compress --mangle --comments --output dist/bundles/geco-dialog.umd.min.js",
+        "build": "npm run transpile && npm run package && npm run minify"
     },
     "keywords": [
         "angular4",
@@ -16,12 +22,28 @@
         "modal",
         "dialog"
     ],
-    "author": "gecoreto",
+    "author":  {
+        "name": "David Garzon",
+        "email": "stylegeco@gmail.com"
+    },
     "license": "MIT",
     "devDependencies": {
-        "typescript": "~2.5.3"
+        "@angular/compiler": "^6.0.2",
+        "@angular/compiler-cli": "^6.0.2",
+        "rollup": "^0.59.1",
+        "typescript": "^2.7.2",
+        "uglify-js": "^3.3.25"
     },
     "dependencies": {
         "@angular/core": "^5.2.0"
-    }
+    },
+    "peerDependencies": {
+        "@angular/core": "^4.0.0 || ^5.2.0",
+        "rxjs": "^5.0.1"
+    },
+    "bugs": {
+        "url": "https://github.com/gecoreto/angular-dynamic-dialog/issues"
+    },
+    "homepage": "https://github.com/gecoreto/angular-dynamic-dialog",
+    "typings": "./dist/geco-dialog.d.ts"
 }

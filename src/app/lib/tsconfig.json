@@ -1,14 +1,19 @@
 {
     "compileOnSave": false,
     "compilerOptions": {
-        "outDir": "./dist",
+        "baseUrl": ".",
+        "rootDir": ".",
+        "outDir": "dist",
         "removeComments": true,
         "sourceMap": true,
-        "declaration": false,
+        "declaration": true,
         "moduleResolution": "node",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
+        "inlineSources": true,
         "target": "es5",
+        "skipLibCheck": true,
+        "stripInternal": true,
         "typeRoots": [
             "node_modules/@types"
         ],
@@ -25,7 +30,6 @@
         "dist"
     ],
     "angularCompilerOptions": {
-        "skipTemplateCodegen": true,
-        "skipMetadataEmit": false
+        "strictMetadataEmit": true
     },
 }
