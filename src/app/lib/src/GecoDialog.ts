@@ -5,7 +5,7 @@ import {
     from "@angular/core";
 import { DOCUMENT } from "@angular/common";
 import { ContainerDialogComponent } from "./container-dialog.component";
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { GecoDialogRef } from "./GecoDialogRef";
 import { DataConfig } from "./data-config";
 

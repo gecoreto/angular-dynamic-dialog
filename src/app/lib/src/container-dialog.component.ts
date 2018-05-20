@@ -2,8 +2,8 @@ import {
     Component, OnInit, ViewContainerRef, ViewChild,
     ComponentFactoryResolver, AfterViewInit, Injector, InjectionToken, Inject, ChangeDetectorRef
 } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
+import { Observable } from 'rxjs';
+import { Subject } from 'rxjs';
 import { DataConfig } from './data-config';
 
 
