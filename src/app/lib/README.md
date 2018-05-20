@@ -4,6 +4,8 @@ Angular-dynamic-dialog is a library for building dynamic dialog, here you can em
 
 ## Demo
 
+https://gecoreto.github.io/angular-dynamic-dialog/
+
 ## Install
 ```bash
 $ npm i angular-dynamic-dialog

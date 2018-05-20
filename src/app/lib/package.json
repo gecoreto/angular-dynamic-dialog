@@ -44,6 +44,6 @@
     "bugs": {
         "url": "https://github.com/gecoreto/angular-dynamic-dialog/issues"
     },
-    "homepage": "https://github.com/gecoreto/angular-dynamic-dialog",
+    "homepage": "https://gecoreto.github.io/angular-dynamic-dialog/",
     "typings": "./dist/geco-dialog.d.ts"
 }
