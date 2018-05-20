@@ -38,40 +38,45 @@ Render the html of your component that will be the content of the modal
 
 ## Content html of DynamicCotentExampleComponent
 ```Html
-  <div class="modal-header">
-    <h5 class="modal-title">Modal title</h5>
-    <button type="button" class="close" (click)="dialogRef.closeModal()" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <p>Modal body text goes here.</p>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-primary">Save changes</button>
-    <button type="button" class="btn btn-secondary" (click)="dialogRef.closeModal()">Close</button>
-  </div>
+<div class="modal-header">
+  <h5 class="modal-title">Modal title</h5>
+  <button type="button" class="close" (click)="dialogRef.closeModal()" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <p>Modal body text goes here.</p>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary">Save changes</button>
+  <button type="button" class="btn btn-secondary" (click)="dialogRef.closeModal()">Close</button>
+</div>
 ```
 
 ## Opening the modal
 
 ```TypeScript
-    //The first parameter is the component to be rendered in the modal's content
-    //The second parameter is the modal's configuration
-    let modal = this.modal.openDialog(DynamicCotentExampleComponent, {
-      //Inject data
-      data: { name: 'David' },
-      //Options: 'bootstrap', 'none'
-      useStyles: 'none' 
-    });
-    //Event when closing the modal
-    modal.onClosedModal().subscribe(() => {
-      alert('Closed modal!!!');
-    });
-    //Event when opening the modal
-    modal.onOpenModal().subscribe(() => {
-       alert('open modal');
-    });
+import { GecoDialog } from 'angular-dynamic-dialog/geco-dialog'; // <-- import the dynamic dialog
+
+public constructor(private modal: GecoDialog) {
+}
+
+//The first parameter is the component to be rendered in the modal's content
+//The second parameter is the modal's configuration
+let modal = this.modal.openDialog(DynamicCotentExampleComponent, {
+  //Inject data
+  data: { name: 'David' },
+  //Options: 'bootstrap', 'none'
+  useStyles: 'none' 
+});
+//Event when closing the modal
+modal.onClosedModal().subscribe(() => {
+  alert('Closed modal!!!');
+});
+//Event when opening the modal
+modal.onOpenModal().subscribe(() => {
+    alert('open modal');
+});
 ```
 
 ## Options openDialog()
@@ -86,18 +91,18 @@ The parameters are optional
 
 If you use Bootstrap 4
 ```TypeScript
-    let modal = this.modal.openDialog(DynamicCotentExampleComponent, {
-      //Options: 'bootstrap', 'none'
-      useStyles: 'bootstrap' 
-    });
+let modal = this.modal.openDialog(DynamicCotentExampleComponent, {
+  //Options: 'bootstrap', 'none'
+  useStyles: 'bootstrap' 
+});
 ```
 
 otherwise, just use the default styles:
 ```TypeScript
-    let modal = this.modal.openDialog(DynamicCotentExampleComponent, {
-      //Options: 'bootstrap', 'none'
-      useStyles: 'none' 
-    });
+let modal = this.modal.openDialog(DynamicCotentExampleComponent, {
+  //Options: 'bootstrap', 'none'
+  useStyles: 'none' 
+});
 ```
 
 ### Styling
@@ -107,24 +112,25 @@ All the elements have specific css classes, please just look them up using the e
 ### Receiving data in your dynamic content
 Inject the data into your constructor
 ```TypeScript
-    import { 
-      GECO_DATA_DIALOG, 
-      GecoDialog, 
-      GECO_DIALOG_REF, 
-      GecoDialogRef } from 'angular-dynamic-dialog/geco-dialog'; // <-- import the components
-    constructor(
-    @Inject(GECO_DATA_DIALOG) public data: any,
-    @Inject(GECO_DIALOG_REF) public dialogRef: GecoDialogRef
-  ) { 
-    console.log('Data =>', this.data);
-    console.log('dialogRef =>', this.dialogRef);
-  }
+import { 
+    GECO_DATA_DIALOG, 
+    GecoDialog, 
+    GECO_DIALOG_REF, 
+    GecoDialogRef } from 'angular-dynamic-dialog/geco-dialog'; // <-- import the components
+    
+  constructor(
+  @Inject(GECO_DATA_DIALOG) public data: any,
+  @Inject(GECO_DIALOG_REF) public dialogRef: GecoDialogRef
+) { 
+  console.log('Data =>', this.data);
+  console.log('dialogRef =>', this.dialogRef);
+}
 ```
 
 ### Emitting action from the dynamic component
 Close dialog from your component
 ```Html
-    <button type="button" (click)="dialogRef.closeModal()">Close Modal</button>
+<button type="button" (click)="dialogRef.closeModal()">Close Modal</button>
 ```
 
 ## Contribute
