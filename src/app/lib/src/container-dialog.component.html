@@ -8,8 +8,8 @@
 
 <!-- Modal -->
 <div class="modal" id="modalContainer" tabindex="-1" role="dialog" (click)="closeDialogFromHtml()">
-    <div class="modal-dialog" role="document" (click)="divModalDialog = true">
-        <div class="modal-content">
+    <div class="{{modalDialog}}" role="document" (click)="divModalDialog = true">
+        <div class="{{modalContent}}">
             <ng-container #dynamicContent></ng-container>
         </div>
     </div>

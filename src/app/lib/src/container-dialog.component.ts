@@ -73,9 +73,9 @@ export class ContainerDialogComponent implements OnInit, AfterViewInit {
             this.modalDialog = 'modal-dialog';
             this.modalContent = 'modal-content';
         } else if (useStyles == "none") {
-            this.modalback = 'geco-modal-back';
-            this.modalDialog = 'geco-modal-dialog';
-            this.modalContent = 'geco-modal-content';
+            this.modalback = 'geco-modal-back-show';
+            this.modalDialog = 'geco-modal-dialog-show';
+            this.modalContent = 'geco-modal-content-show';
         }
         this.cdRef.detectChanges(); 
     }

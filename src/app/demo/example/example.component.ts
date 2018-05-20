@@ -18,7 +18,7 @@ export class ExampleComponent implements OnInit {
     let modal = this.modal.openDialog(DynamicCotentComponent, {
       //Inject data
       data: { name: 'david' },
-      //Options: 'default', 'bootstrap', 'none'
+      //Options: 'bootstrap', 'none'
       useStyles: 'bootstrap' 
     });
     //Event when closing the modal
