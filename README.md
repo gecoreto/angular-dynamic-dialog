@@ -32,10 +32,31 @@ export class MyAppModule {}
 
 ## Usage
 
+Render the html of your component that will be the content of the modal
+
+## Content html of DynamicCotentExampleComponent
+```Html
+  <div class="modal-header">
+    <h5 class="modal-title">Modal title</h5>
+    <button type="button" class="close" (click)="dialogRef.closeModal()" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Modal body text goes here.</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary">Save changes</button>
+    <button type="button" class="btn btn-secondary" (click)="dialogRef.closeModal()">Close</button>
+  </div>
+```
+
 ## Opening the modal
 
 ```TypeScript
-    let modal = this.modal.openDialog(DynamicCotentComponent, {
+    //The first parameter is the component to be rendered in the modal's content
+    //The second parameter is the modal's configuration
+    let modal = this.modal.openDialog(DynamicCotentExampleComponent, {
       //Inject data
       data: { name: 'David' },
       //Options: 'bootstrap', 'none'
@@ -63,7 +84,7 @@ The parameters are optional
 
 If you use Bootstrap 4
 ```TypeScript
-    let modal = this.modal.openDialog(DynamicCotentComponent, {
+    let modal = this.modal.openDialog(DynamicCotentExampleComponent, {
       //Options: 'bootstrap', 'none'
       useStyles: 'bootstrap' 
     });
@@ -71,7 +92,7 @@ If you use Bootstrap 4
 
 otherwise, just use the default styles:
 ```TypeScript
-    let modal = this.modal.openDialog(DynamicCotentComponent, {
+    let modal = this.modal.openDialog(DynamicCotentExampleComponent, {
       //Options: 'bootstrap', 'none'
       useStyles: 'none' 
     });
