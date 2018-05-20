@@ -1,6 +1,6 @@
 {
     "name": "angular-dynamic-dialog",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "description": "Angular-dynamic-dialog is a library for building dynamic dialog, here you can embed a component to render the dialog's content. Customizing to your liking",
     "repository": {
         "type": "git",
@@ -22,17 +22,18 @@
         "modal",
         "dialog"
     ],
-    "author":  {
+    "author": {
         "name": "David Garzon",
         "email": "stylegeco@gmail.com"
     },
     "license": "MIT",
     "devDependencies": {
         "@angular/compiler": "^6.0.2",
+        "@angular/common": "^5.2.0",
         "@angular/compiler-cli": "^6.0.2",
         "rollup": "^0.59.1",
         "typescript": "^2.7.2",
-        "uglify-js": "^3.3.25"
+        "uglify-js": "^3.3.26"
     },
     "dependencies": {
         "@angular/core": "^5.2.0"
