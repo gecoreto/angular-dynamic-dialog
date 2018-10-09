@@ -13,22 +13,23 @@ export class ExampleComponent implements OnInit {
 
   ngOnInit() {
   }
-  
-  openModal(){
+
+  openModal() {
     let modal = this.modal.openDialog(DynamicCotentComponent, {
       //Inject data
       data: { name: 'david' },
       //Options: 'bootstrap', 'none'
-      useStyles: 'bootstrap' 
+      useStyles: 'bootstrap',
+      closeOutSide: false
     });
     //Event when closing the modal
     modal.onClosedModal().subscribe(() => {
       alert('Closed modal!!!');
     });
     //Event when opening the modal
-    modal.onOpenModal().subscribe(() => {
-      // alert('open modal');
-    });
+    modal.onOpenModal().finally(() => {
+      //alert('open modal');
+    }).subscribe();
 
   }
 

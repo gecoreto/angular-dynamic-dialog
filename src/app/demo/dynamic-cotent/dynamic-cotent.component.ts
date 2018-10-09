@@ -11,7 +11,7 @@ export class DynamicCotentComponent implements OnInit {
   constructor(
     @Inject(GECO_DATA_DIALOG) public data: any,
     @Inject(GECO_DIALOG_REF) public dialogRef: GecoDialogRef
-  ) { 
+  ) {
 
   }
 
@@ -19,5 +19,5 @@ export class DynamicCotentComponent implements OnInit {
     console.log('Data =>', this.data);
     console.log('dialogRef =>', this.dialogRef);
   }
-  
+
 }

@@ -1,9 +1,7 @@
 import {
-    Injectable,
-    Inject, Component, ApplicationRef
+    Injectable, ApplicationRef
 }
     from "@angular/core";
-import { DOCUMENT } from "@angular/common";
 import { ContainerDialogComponent } from "./container-dialog.component";
 import { Observable } from 'rxjs';
 
@@ -34,11 +32,7 @@ export class GecoDialogRef {
     }
 
     onOpenModal(): Observable<any> {
-        const evn = this._container.onOpenModal();
-        evn.subscribe(() => {
-            // alert('open modal');
-        });
-        return evn;
+        return this._container.onOpenModal();
     }
 
     private _removeComponentModal() {

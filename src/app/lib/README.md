@@ -74,9 +74,9 @@ modal.onClosedModal().subscribe(() => {
   alert('Closed modal!!!');
 });
 //Event when opening the modal
-modal.onOpenModal().subscribe(() => {
-    alert('open modal');
-});
+modal.onOpenModal().finally(() => {
+  alert('open modal');
+}).subscribe();
 ```
 
 ## Options openDialog()

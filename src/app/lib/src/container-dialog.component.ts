@@ -1,6 +1,6 @@
 import {
     Component, OnInit, ViewContainerRef, ViewChild,
-    ComponentFactoryResolver, AfterViewInit, Injector, InjectionToken, Inject, ChangeDetectorRef
+    ComponentFactoryResolver, AfterViewInit, Injector, ChangeDetectorRef, ComponentRef
 } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Subject } from 'rxjs';
@@ -19,36 +19,42 @@ export class ContainerDialogComponent implements OnInit, AfterViewInit {
     private dynamicContent: ViewContainerRef;
     private subjectOpen = new Subject<any>();
     private subjectClose = new Subject<any>();
-    private refDynamicContent: any;
+    private refDynamicContent: ComponentRef<any>;
     modalback: string = 'geco-modal-back-show';
     modalDialog: string = 'geco-modal-dialog-show';
     modalContent: string = 'geco-modal-content-show';
+    bootstrapSize: string = '';
+    closeOutSide: boolean = true;
     private config: DataConfig;
-    private show: boolean = false;
 
     constructor(
         private r: ComponentFactoryResolver,
-        private cdRef: ChangeDetectorRef
+        private cdRef: ChangeDetectorRef,
+        private _injector: Injector,
     ) {
     }
 
     ngOnInit() {
     }
 
-    ngAfterViewInit() {
+    ngAfterViewInit() {        
         this.openDialog();
     }
 
-    addDynamicContent(compRef, config: DataConfig, injector: Injector = null) {
+    addDynamicContent(compRef, config: DataConfig, injector: any = null) {
         this.config = config;
         this._defineClasses(this.config['useStyles'] == undefined ? 'default' : this.config.useStyles);
+        this.config['bootstrapSize'] == undefined ? this.bootstrapSize : this.config.bootstrapSize;
+        this.config['closeOutSide'] == undefined ? this.closeOutSide : this.config.closeOutSide;
         const factory = this.r.resolveComponentFactory(compRef);
-        this.refDynamicContent = this.dynamicContent.createComponent(factory, null, injector);
+        const inject = new CustomInjector(this._injector, injector);
+        this.refDynamicContent = this.dynamicContent.createComponent(factory, null, inject);
     }
 
     private openDialog() {
         //emit event
         this.subjectOpen.next();
+        this.subjectOpen.complete();
     }
 
     closeDialog(result?) {
@@ -56,6 +62,7 @@ export class ContainerDialogComponent implements OnInit, AfterViewInit {
         this.dynamicContent.clear();
         //emit event
         this.subjectClose.next(result);
+        this.subjectClose.complete();
     }
 
     onClosedModal(): Observable<any> {
@@ -77,13 +84,32 @@ export class ContainerDialogComponent implements OnInit, AfterViewInit {
             this.modalDialog = 'geco-modal-dialog-show';
             this.modalContent = 'geco-modal-content-show';
         }
-        this.cdRef.detectChanges(); 
+        this.cdRef.detectChanges();
     }
 
     closeDialogFromHtml() {
-        if(this.divModalDialog){
+        if (this.divModalDialog) {
             return false;
         }
         this.closeDialog();
+    }
+}
+
+/**
+ * Custom injector to be used when providing custom
+ */
+class CustomInjector implements Injector {
+    constructor(
+        private _parentInjector: Injector,
+        private _customTokens: WeakMap<any, any>) { }
+
+    get(token: any, notFoundValue?: any): any {
+        const value = this._customTokens.get(token);
+
+        if (typeof value !== 'undefined') {
+            return value;
+        }
+
+        return this._parentInjector.get<any>(token, notFoundValue);
     }
 }
