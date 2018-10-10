@@ -1,0 +1,32 @@
+{
+  "name": "angular-dynamic-dialog",
+  "version": "1.0.5",
+  "description": "Angular-dynamic-dialog is a library for building dynamic dialog, here you can embed a component to render the dialog's content. Customizing to your liking",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gecoreto/angular-dynamic-dialog.git"
+  },
+  "keywords": [
+    "angular4",
+    "angular5",
+    "angular6",
+    "angular",
+    "library",
+    "dynamic",
+    "modal",
+    "dialog"
+  ],
+  "author": {
+    "name": "David Garzon",
+    "email": "stylegeco@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gecoreto/angular-dynamic-dialog/issues"
+  },
+  "homepage": "https://gecoreto.github.io/angular-dynamic-dialog/",
+  "peerDependencies": {
+    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
+  }
+}

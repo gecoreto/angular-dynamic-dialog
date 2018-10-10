@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GecoDialog } from '../../lib/geco-dialog';
+import { GecoDialog } from '../../../../projects/dynamic-dialog/src/public_api';
 import { DynamicCotentComponent } from '../dynamic-cotent/dynamic-cotent.component';
 
 @Component({
@@ -27,9 +27,9 @@ export class ExampleComponent implements OnInit {
       alert('Closed modal!!!');
     });
     //Event when opening the modal
-    modal.onOpenModal().finally(() => {
+    modal.onOpenModal().subscribe(() => {
       //alert('open modal');
-    }).subscribe();
+    });
 
   }
 

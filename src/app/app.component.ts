@@ -1,6 +1,4 @@
-import { Component, Inject, OnInit, ViewContainerRef } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
-import { GecoDialog, GECO_DATA_DIALOG } from './lib/src/GecoDialog';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',

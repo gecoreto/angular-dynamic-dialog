@@ -1,11 +1,9 @@
 import {
-    Injectable, ViewChild, ViewContainerRef, ComponentFactoryResolver,
-    Inject, Component, Injector, ApplicationRef, EmbeddedViewRef, InjectionToken
+    Injectable, ComponentFactoryResolver,
+    Injector, ApplicationRef, EmbeddedViewRef, InjectionToken
 }
     from "@angular/core";
-import { DOCUMENT } from "@angular/common";
 import { ContainerDialogComponent } from "./container-dialog.component";
-import { Observable } from 'rxjs';
 import { GecoDialogRef } from "./GecoDialogRef";
 import { DataConfig } from "./data-config";
 
