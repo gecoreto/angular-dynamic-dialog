@@ -27,8 +27,8 @@ export class ExampleComponent implements OnInit {
       alert('Closed modal!!!');
     });
     //Event when opening the modal
-    modal.onOpenModal().subscribe(() => {
-      //alert('open modal');
+    modal.onOpenModal().subscribe(null, null, () => {
+      alert('open modal');
     });
 
   }

@@ -16,7 +16,7 @@ $ npm i angular-dynamic-dialog
 // app.module.ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { GecoDialogModule } from 'angular-dynamic-dialog/geco-dialog'; // <-- import the module
+import { GecoDialogModule } from 'angular-dynamic-dialog'; // <-- import the module
 import { MyDynamicContentComponent } from './myDynamicContent.component';
 import { AppComponent } from './app.component';
 
@@ -56,7 +56,7 @@ Render the html of your component that will be the content of the modal
 ## Opening the modal
 
 ```TypeScript
-import { GecoDialog } from 'angular-dynamic-dialog/geco-dialog'; // <-- import the dynamic dialog
+import { GecoDialog } from 'angular-dynamic-dialog'; // <-- import the dynamic dialog
 
 public constructor(private modal: GecoDialog) {
 }
@@ -74,9 +74,9 @@ modal.onClosedModal().subscribe(() => {
   alert('Closed modal!!!');
 });
 //Event when opening the modal
-modal.onOpenModal().finally(() => {
+modal.onOpenModal().subscribe(null, null, () => {
   alert('open modal');
-}).subscribe();
+});
 ```
 
 ## Options openDialog()
@@ -116,7 +116,7 @@ import {
     GECO_DATA_DIALOG, 
     GecoDialog, 
     GECO_DIALOG_REF, 
-    GecoDialogRef } from 'angular-dynamic-dialog/geco-dialog'; // <-- import the components
+    GecoDialogRef } from 'angular-dynamic-dialog'; // <-- import the components
     
   constructor(
   @Inject(GECO_DATA_DIALOG) public data: any,
