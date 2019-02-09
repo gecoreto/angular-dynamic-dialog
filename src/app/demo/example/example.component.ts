@@ -20,7 +20,8 @@ export class ExampleComponent implements OnInit {
       data: { name: 'david' },
       //Options: 'bootstrap', 'none'
       useStyles: 'bootstrap',
-      closeOutSide: false
+      closeOutSide: false,
+      bootstrapSize: 'modal-lg'
     });
     //Event when closing the modal
     modal.onClosedModal().subscribe(() => {

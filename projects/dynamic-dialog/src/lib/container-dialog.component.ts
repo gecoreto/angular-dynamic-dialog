@@ -37,15 +37,17 @@ export class ContainerDialogComponent implements OnInit, AfterViewInit {
     ngOnInit() {
     }
 
-    ngAfterViewInit() {        
+    ngAfterViewInit() {
         this.openDialog();
     }
 
     addDynamicContent(compRef, config: DataConfig, injector: any = null) {
         this.config = config;
         this._defineClasses(this.config['useStyles'] == undefined ? 'default' : this.config.useStyles);
-        this.config['bootstrapSize'] == undefined ? this.bootstrapSize : this.config.bootstrapSize;
-        this.config['closeOutSide'] == undefined ? this.closeOutSide : this.config.closeOutSide;
+        setTimeout(() => {
+            this.bootstrapSize = this.config['bootstrapSize'] == undefined ? this.bootstrapSize : this.config.bootstrapSize;
+            this.closeOutSide = this.config['closeOutSide'] == undefined ? this.closeOutSide : this.config.closeOutSide;
+        });
         const factory = this.r.resolveComponentFactory(compRef);
         const inject = new CustomInjector(this._injector, injector);
         this.refDynamicContent = this.dynamicContent.createComponent(factory, null, inject);
@@ -88,10 +90,9 @@ export class ContainerDialogComponent implements OnInit, AfterViewInit {
     }
 
     closeDialogFromHtml() {
-        if (this.divModalDialog) {
-            return false;
+        if (!this.divModalDialog && this.closeOutSide) {
+            this.closeDialog();
         }
-        this.closeDialog();
     }
 }
 
