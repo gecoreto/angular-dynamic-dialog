@@ -1,11 +1,7 @@
-import {
-    Injectable, ApplicationRef
-}
-    from "@angular/core";
-import { ContainerDialogComponent } from "./container-dialog.component";
+import { ApplicationRef, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ContainerDialogComponent } from './container-dialog.component';
 
-@Injectable()
 export class GecoDialogRef {
 
     constructor(
@@ -19,9 +15,9 @@ export class GecoDialogRef {
      * Close the dialog.
      * @param result Optional result to return to the dialog closed.
      */
-    closeModal(result?) {
+    closeModal(result?: any): void {
         this._container.closeDialog(result);
-    };
+    }
 
     onClosedModal(): Observable<any> {
         const evn = this._container.onClosedModal();
@@ -35,11 +31,9 @@ export class GecoDialogRef {
         return this._container.onOpenModal();
     }
 
-    private _removeComponentModal() {
+    private _removeComponentModal(): void {
         this.appRef.detachView(this._componentRef.hostView);
         this._componentRef.destroy();
     }
-
-
 
 }

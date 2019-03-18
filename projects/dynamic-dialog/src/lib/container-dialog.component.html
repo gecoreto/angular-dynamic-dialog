@@ -1,13 +1,9 @@
-<div class="{{modalback}}" (click)="closeDialog()"></div>
-<!-- <div class="{{modalDialog}}">
-    <div class="{{modalContent}}">
-        <ng-container #dynamicContent></ng-container>
-    </div>
-</div> -->
-
+<div [ngClass]="{'close-dialog': close, 'show' : !close}" id="modalback" class="{{modalback}} fade"
+    (click)="closeDialog()"></div>
 
 <!-- Modal -->
-<div class="modal" id="modalContainer" tabindex="-1" role="dialog" (click)="closeDialogFromHtml()">
+<div *ngIf="!close" [ngClass]="{'show' : showModal}" class="modal fade" id="modalContainer" tabindex="-1" role="dialog"
+    (click)="closeDialogFromHtml()">
     <div class="{{modalDialog + ' ' + bootstrapSize}}" role="document" (click)="divModalDialog = true">
         <div class="{{modalContent}}">
             <ng-container #dynamicContent></ng-container>

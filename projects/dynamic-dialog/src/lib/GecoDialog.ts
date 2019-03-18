@@ -1,11 +1,10 @@
 import {
     Injectable, ComponentFactoryResolver,
     Injector, ApplicationRef, EmbeddedViewRef, InjectionToken
-}
-    from "@angular/core";
-import { ContainerDialogComponent } from "./container-dialog.component";
-import { GecoDialogRef } from "./GecoDialogRef";
-import { DataConfig } from "./data-config";
+} from '@angular/core';
+import { ContainerDialogComponent } from './container-dialog.component';
+import { GecoDialogRef } from './GecoDialogRef';
+import { DataConfig } from './data-config';
 
 /** Injection token that can be used to access the data that was passed in to a dialog. */
 export const GECO_DATA_DIALOG = new InjectionToken<any>('GecoDataDialog');
@@ -25,22 +24,22 @@ export class GecoDialog {
     ) {
     }
 
-    openDialog(compRef, config: DataConfig = { data: {}, useStyles: 'default' }): GecoDialogRef {
+    openDialog(compRef: any, config: DataConfig = { data: {}, useStyles: 'default' }): GecoDialogRef {
         this._componentRef = this.appendComponentToBody(ContainerDialogComponent);
         this._container = this._componentRef['_component'];
         this._dialogRef = new GecoDialogRef(this.appRef, this._componentRef, this._container);
-        var injector = this._createInjector(config);
+        const injector = this._createInjector(config);
         this._container.addDynamicContent(compRef, config, injector);
-        
+
         return this._dialogRef;
     }
 
-    private appendComponentToBody(component: any) {
+    private appendComponentToBody(component: any): any {
         // 1. Create a component reference from the component 
         const componentRef = this.r
             .resolveComponentFactory(component)
             .create(this.injector);
-            componentRef.changeDetectorRef.detectChanges();
+        componentRef.changeDetectorRef.detectChanges();
 
         // 2. Attach component to the appRef so that it's inside the ng component tree
         this.appRef.attachView(componentRef.hostView);
@@ -60,12 +59,12 @@ export class GecoDialog {
         return componentRef;
     }
 
-    private removeComponentModal() {
+    private removeComponentModal(): any {
         this.appRef.detachView(this._componentRef.hostView);
         this._componentRef.destroy();
     }
 
-    private _createInjector(config: any = undefined): Injector {
+    private _createInjector(config: any): Injector {
 
         const injectionTokens = new WeakMap();
 
@@ -73,7 +72,7 @@ export class GecoDialog {
         injectionTokens
             .set(GECO_DIALOG_REF, this._dialogRef);
         if (config.hasOwnProperty('data')) {
-            injectionTokens.set(GECO_DATA_DIALOG, config.data)
+            injectionTokens.set(GECO_DATA_DIALOG, config.data);
         }
 
         return injectionTokens;

@@ -11,23 +11,23 @@ export class ExampleComponent implements OnInit {
 
   constructor(private modal: GecoDialog) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  openModal() {
-    let modal = this.modal.openDialog(DynamicCotentComponent, {
-      //Inject data
+  openModal(): void {
+    const modal = this.modal.openDialog(DynamicCotentComponent, {
+      // Inject data
       data: { name: 'david' },
-      //Options: 'bootstrap', 'none'
+      // Options: 'bootstrap', 'none'
       useStyles: 'bootstrap',
-      closeOutSide: false,
+      closeOutSide: true,
       bootstrapSize: 'modal-lg'
     });
-    //Event when closing the modal
+    // Event when closing the modal
     modal.onClosedModal().subscribe(() => {
       alert('Closed modal!!!');
     });
-    //Event when opening the modal
+    // Event when opening the modal
     modal.onOpenModal().subscribe(null, null, () => {
       alert('open modal');
     });
