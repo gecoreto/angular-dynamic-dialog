@@ -30,6 +30,7 @@ export class GecoDialog {
         this._dialogRef = new GecoDialogRef(this.appRef, this._componentRef, this._container);
         const injector = this._createInjector(config);
         this._container.addDynamicContent(compRef, config, injector);
+        this._container.onClosedModal().subscribe(() => this.removeComponentModal());
 
         return this._dialogRef;
     }

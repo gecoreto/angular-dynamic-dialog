@@ -12,7 +12,7 @@ import { CustomInjector } from './custom-injector';
     templateUrl: './container-dialog.component.html',
     styleUrls: ['../dialog.css']
 })
-export class ContainerDialogComponent implements OnInit, AfterViewInit {
+export class ContainerDialogComponent implements OnInit {
     divModalDialog: boolean = false;
 
     @ViewChild('dynamicContent', { read: ViewContainerRef })
@@ -26,8 +26,8 @@ export class ContainerDialogComponent implements OnInit, AfterViewInit {
     bootstrapSize: string = '';
     closeOutSide: boolean = true;
     private config: DataConfig;
-    private close: boolean = true;
-    private showModal: boolean = false;
+    close: boolean = true;
+    showModal: boolean = false;
 
     constructor(
         private r: ComponentFactoryResolver,
@@ -43,10 +43,6 @@ export class ContainerDialogComponent implements OnInit, AfterViewInit {
         }, 200);
     }
 
-    ngAfterViewInit(): void {
-        this.openDialog();
-    }
-
     addDynamicContent(compRef: any, config: DataConfig, injector: any = null): void {
         this.config = config;
         this._defineClasses(this.config['useStyles'] === undefined ? 'default' : this.config.useStyles);
@@ -57,6 +53,7 @@ export class ContainerDialogComponent implements OnInit, AfterViewInit {
         const factory = this.r.resolveComponentFactory(compRef);
         const inject = new CustomInjector(this._injector, injector);
         this.refDynamicContent = this.dynamicContent.createComponent(factory, null, inject);
+        this.openDialog();
     }
 
     private openDialog(): void {
