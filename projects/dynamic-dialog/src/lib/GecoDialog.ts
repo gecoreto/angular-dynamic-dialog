@@ -26,7 +26,7 @@ export class GecoDialog {
 
     openDialog(compRef: any, config: DataConfig = { data: {}, useStyles: 'default' }): GecoDialogRef {
         this._componentRef = this.appendComponentToBody(ContainerDialogComponent);
-        this._container = this._componentRef['_component'];
+        this._container = this._componentRef['instance'];
         this._dialogRef = new GecoDialogRef(this.appRef, this._componentRef, this._container);
         const injector = this._createInjector(config);
         this._container.addDynamicContent(compRef, config, injector);
@@ -36,7 +36,7 @@ export class GecoDialog {
     }
 
     private appendComponentToBody(component: any): any {
-        // 1. Create a component reference from the component 
+        // 1. Create a component reference from the component
         const componentRef = this.r
             .resolveComponentFactory(component)
             .create(this.injector);
